@@ -2,6 +2,32 @@
 PORT = 3500
 MONGO_URI = mongodb+srv://csanyiadam8:adamrooney123@elso.h2danve.mongodb.net/
 
+alap szerver kód
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+const mongoose = require("mongoose");
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("Sikeres adatbázis csatlakozás");
+  })
+  .catch((error) => {
+    console.log("valami hiba történt" + error);
+  });
+
+const port = 3500 || process.env.PORT;
+
+app.listen(port, () => {
+  console.log(`http://localhost:${port}`);
+});
+
 npm packages
 CLIENT
 npm i react-router-dom
@@ -14,3 +40,18 @@ Bootstrap link
   integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
   crossorigin="anonymous"
 />
+
+visual studio extensions
+auto close tag
+auto complete tag
+auto import
+auto rename tag
+css peek
+css-auto-prefix
+ejs language support
+es7+ react
+htmltagwrap
+html boilerplate
+html css support
+node.js exec
+prettier
